@@ -31,7 +31,7 @@ class Tag
     /**
      * @var int
      *
-     * @ORM\Column(name="cat", type="integer")
+     * @ORM\Column(name="cat", type="integer", nullable=true)
      */
     private $cat;
 
@@ -94,4 +94,3 @@ class Tag
         return $this->cat;
     }
 }
-
