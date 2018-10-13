@@ -9,4 +9,4 @@ fos_user:
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/AdminController.php"
     type:     annotation
-    prefix:   /admin
+    prefix:   /_wtf

@@ -78,6 +78,11 @@ fos_user:
         sender_name: Hermeline
 
 easy_admin:
+    site_name: 'WTF!!!'
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'd/m/Y H:i:s'
     entities:
         Conference:
             class: WTFBundle\Entity\Conference
