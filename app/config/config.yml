@@ -87,7 +87,7 @@ easy_admin:
                     - title
                     - description
                     - lieu
-                    - { property: 'image', type: 'image', base_path: '/uploads/image' }
+                    - { property: 'image', type: 'image', base_path: '/web/uploads/image' }
                     - date
                     - auteur
         Tag:
