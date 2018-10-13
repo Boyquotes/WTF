@@ -90,6 +90,8 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '/uploads/image' }
                     - date
                     - auteur
+        Tag:
+            class: WTFBundle\Entity\Tag
         User:
             class: WTFBundle\Entity\User
 
