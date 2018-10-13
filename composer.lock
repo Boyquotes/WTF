@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "31feb6fe54a22cea42cf168ad14eea40",
-=======
-    "content-hash": "b433725457821fa3d5c4fd2b9788d791",
->>>>>>> temp
     "packages": [
         {
             "name": "components/jquery",

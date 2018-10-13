@@ -17,7 +17,6 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 /**
  * Conference controller.
  *
- * @Route("conference")
  */
 class ConferenceController extends Controller
 {
@@ -77,7 +76,7 @@ class ConferenceController extends Controller
     /**
      * Finds and displays a conference entity.
      *
-     * @Route("/{id}", name="conference_show")
+     * @Route("/{id}", name="conference_show", requirements={"id"="\d+"})
      * @Method("GET")
      */
     public function showAction(Conference $conference)
