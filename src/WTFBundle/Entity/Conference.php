@@ -5,6 +5,7 @@ namespace WTFBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use WTFBundle\Entity\AbstractGMap;
 
 /**
@@ -12,6 +13,7 @@ use WTFBundle\Entity\AbstractGMap;
  *
  * @ORM\Table(name="conference")
  * @ORM\Entity(repositoryClass="WTFBundle\Repository\ConferenceRepository")
+ * @Vich\Uploadable
  */
 class Conference extends AbstractGMap
 {
@@ -53,11 +55,16 @@ class Conference extends AbstractGMap
     private $lieu;
 
     /**
+     * @Vich\UploadableField(mapping="conference_images", fileNameProperty="image")
+     *
+     * @var Image
+     */
+    private $imageFile;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255)
-     * @Assert\Image()
-     * @Assert\NotBlank(message="S'il vous plait, rajoutez une image")
      */
     private $image;
 
@@ -66,6 +73,11 @@ class Conference extends AbstractGMap
      * @ORM\JoinColumn(name="user_id")
      */
     private $auteur;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
 
     /**
@@ -221,4 +233,48 @@ class Conference extends AbstractGMap
     {
         return $this->auteur;
     }
+
+    /**
+     * Set updatedAt.
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Conference
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt.
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+
 }

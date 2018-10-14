@@ -95,6 +95,14 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '/web/uploads/image' }
                     - date
                     - auteur
+            new:
+                fields:
+                    - title
+                    - description
+                    - lieu
+                    - { property: 'imageFile', type: 'file' }
+                    - date
+                    - auteur
         Tag:
             class: WTFBundle\Entity\Tag
         User:
@@ -105,3 +113,11 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+
+vich_uploader:
+    db_driver: orm
+    mappings: 
+        conference_images:
+            uri_prefix: /uploads/image
+            upload_destination: %kernel.root_dir%/../web/uploads/image/
+            namer: vich_uploader.namer_origname 

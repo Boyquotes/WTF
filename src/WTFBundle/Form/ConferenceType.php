@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class ConferenceType extends AbstractType
 {
@@ -29,7 +30,7 @@ class ConferenceType extends AbstractType
                 ])
             ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
