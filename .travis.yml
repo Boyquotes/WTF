@@ -1,8 +1,16 @@
 language: php
 
+cache:
+  directories:
+  - $HOME/.composer/cache
+
+env:
+- DB_USER=root DB_HOST=127.0.0.1
+
 php:
     - '7.2'
 
 script:
    - composer install
+   - php bin/console doctrine:database:create
    - vendor/bin/simple-phpunit
